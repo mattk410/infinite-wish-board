@@ -19,6 +19,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.2em;
+    flex-direction: column;
   }
 
   .date {
@@ -30,6 +31,17 @@
     border: 0.4em solid $yellow;
     border-top: 1em solid $yellow;
     animation: border-pulsate 2s infinite;
+  }
+
+  .wish-month {
+    margin-top: -1.8em;
+    font-size: .4em;
+    color: white;
+  }
+
+  .date-number {
+    height: 100%;
+    margin-top: .8em;
   }
 
   @keyframes border-pulsate {

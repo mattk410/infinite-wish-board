@@ -55,7 +55,7 @@ const Wish = ({wish, history}) => {
     let dateClasses = isToday(wish.createdAt) ? 'date-now' : 'date';
     let childImageSpace = child.image ? <img src={child.image} alt="child"/> : <ImgPlaceholder text="Add Image"/>
     let sponsorLogoSpace = sponsor.logo ? <img src={sponsor.logo} alt="Sponsor" className="sponsor"/> : <p>Add Sponsor</p>
-
+    let date = new Date(wish.createdAt)
 
     return (
       <li className="wish" onClick={() => handleWishClick(wish._id)}>
@@ -63,7 +63,14 @@ const Wish = ({wish, history}) => {
               <div hidden={!wish.isIncomplete}>
                   <FontAwesomeIcon icon={faExclamationCircle} color="red" transform="right-25 down-10" size="2x"/>
               </div>
-              <div className={dateClasses}>{new Date(wish.createdAt).getDate()}</div>
+              <div className={dateClasses}>
+                  <div className='wish-month'>
+                      {date.toLocaleString('default', { month: 'long' })}
+                  </div>
+                  <div className='date-number'>
+                    {date.getDate()}
+                  </div>
+              </div>
           </div>
           {childImageSpace}
           <div>
